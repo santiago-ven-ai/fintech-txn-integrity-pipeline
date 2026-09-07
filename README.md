@@ -1,7 +1,7 @@
 # fintech-txn-integrity-pipeline
 
-[![CI](https://github.com/Codemonster808/fintech-txn-integrity-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/Codemonster808/fintech-txn-integrity-pipeline/actions/workflows/ci.yml)
-[![Coverage](https://img.shields.io/badge/coverage-%E2%89%A55%25-yellow)](https://github.com/Codemonster808/fintech-txn-integrity-pipeline/actions/workflows/ci.yml)
+[![CI](https://github.com/santiago-ven-ai/fintech-txn-integrity-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/santiago-ven-ai/fintech-txn-integrity-pipeline/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/badge/coverage-%E2%89%A55%25-yellow)](https://github.com/santiago-ven-ai/fintech-txn-integrity-pipeline/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Exactly-once transaction ingestion pipeline for payment platforms, built to run entirely on LocalStack.
@@ -132,7 +132,7 @@ All AWS access goes through `boto3` with `endpoint_url` set via `AWS_ENDPOINT_UR
 ## Installation
 
 ```bash
-git clone https://github.com/Codemonster808/fintech-txn-integrity-pipeline.git
+git clone https://github.com/santiago-ven-ai/fintech-txn-integrity-pipeline.git
 cd fintech-txn-integrity-pipeline
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements-dev.txt   # app deps + lint/type/security tooling
@@ -173,8 +173,8 @@ See [`docs/BUILD_GUIDE.md`](docs/BUILD_GUIDE.md) for a step-by-step build guide,
 
 ## Contributing
 
-Solo-maintained portfolio/demo repo — not actively seeking external contributions, but issues and questions are welcome via [GitHub Issues](https://github.com/Codemonster808/fintech-txn-integrity-pipeline/issues). See [`CODEOWNERS`](CODEOWNERS) and [`SECURITY.md`](SECURITY.md) for how reports are handled.
+Solo-maintained portfolio/demo repo — not actively seeking external contributions, but issues and questions are welcome via [GitHub Issues](https://github.com/santiago-ven-ai/fintech-txn-integrity-pipeline/issues). See [`CODEOWNERS`](CODEOWNERS) and [`SECURITY.md`](SECURITY.md) for how reports are handled.
 
 ## License
 
-[MIT](LICENSE) © Codemonster808
+[MIT](LICENSE) © santiago-ven-ai
