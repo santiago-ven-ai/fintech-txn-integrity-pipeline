@@ -10,9 +10,9 @@ annotated-types==0.8.0
     # via pydantic
 anyio==4.14.2
     # via starlette
-boto3==1.43.86
+boto3==1.43.98
     # via -r requirements.in
-botocore==1.43.86
+botocore==1.43.99
     # via
     #   boto3
     #   s3transfer
