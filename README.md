@@ -129,35 +129,15 @@ All AWS access goes through `boto3` with `endpoint_url` set via `AWS_ENDPOINT_UR
 3. **Small-file compaction**: measured trade-off between file size and PUT/GET request count, with before/after Redshift query time.
 4. **Transactional outbox**: `record_status.py` commits the job-status row and a `PENDING` outbox row in one `transact_write_items` call — the business fact and the not-yet-published `CurationCompleted` event succeed or fail together. `src/orchestration/outbox_publisher.py` is a separate, idempotent, safe-to-re-run process that actually publishes to SNS — publishing inline inside the Lambda would reintroduce the exact failure mode (a lost event after a committed write) the pattern exists to prevent. See `docs/RUNBOOK.md` §1.5 and §5.
 
-## Installation
-
-```bash
-git clone https://github.com/santiago-ven-ai/fintech-txn-integrity-pipeline.git
-cd fintech-txn-integrity-pipeline
-python3 -m venv .venv && source .venv/bin/activate
-pip install -r requirements-dev.txt   # app deps + lint/type/security tooling
-```
-
-## Usage — Demo (3 minutes)
+## Demo (3 minutes)
 
 ```bash
 source env.sh
-docker compose up -d   # starts MiniStack on :4581 (local AWS emulator)
 make demo        # 200 events — learn / iterate (see docs/RUNBOOK.md)
 make demo-full   # 100k events — regenerates README-scale metrics (~1h)
 pytest tests/integration/test_idempotency.py
 make query
 ```
-
-## Testing
-
-```bash
-make test                     # unit + integration + BDD (pytest-bdd), against real MiniStack
-make e2e                      # full pipeline, emits benchmarks/quality-report.json
-.venv/bin/pre-commit run --all-files   # ruff, mypy, whitespace/EOF checks
-```
-
-CI (`.github/workflows/ci.yml`) runs the same suite on every push, plus an isolated `security` job (`pip-audit`, `gosec`) and a coverage gate that fails the build under the threshold on the badge above — measured from a real run, not invented (see `docs/quality-report.md`).
 
 ## Learn by running
 
@@ -170,11 +150,3 @@ Not a "Kafka word count" with AWS bolted on. Not a happy-path ETL — failure mo
 ## Build it yourself
 
 See [`docs/BUILD_GUIDE.md`](docs/BUILD_GUIDE.md) for a step-by-step build guide, written so it's followable without prior AWS/Spark experience.
-
-## Contributing
-
-Solo-maintained portfolio/demo repo — not actively seeking external contributions, but issues and questions are welcome via [GitHub Issues](https://github.com/santiago-ven-ai/fintech-txn-integrity-pipeline/issues). See [`CODEOWNERS`](CODEOWNERS) and [`SECURITY.md`](SECURITY.md) for how reports are handled.
-
-## License
-
-[MIT](LICENSE) © santiago-ven-ai
