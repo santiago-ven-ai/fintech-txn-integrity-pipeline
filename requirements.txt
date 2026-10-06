@@ -26,7 +26,7 @@ coverage[toml]==7.16.0
     # via pytest-cov
 duckdb==1.5.5
     # via -r requirements.in
-fastapi==0.141.1
+fastapi==0.142.2
     # via -r requirements.in
 gherkin-official==29.0.0
     # via pytest-bdd
@@ -46,6 +46,8 @@ mako==1.4.1
     # via pytest-bdd
 markupsafe==3.0.3
     # via mako
+opentelemetry-api==1.45.0
+    # via fastapi
 packaging==26.3
     # via
     #   pytest
@@ -95,6 +97,7 @@ typing-extensions==4.16.0
     # via
     #   anyio
     #   fastapi
+    #   opentelemetry-api
     #   pydantic
     #   pydantic-core
     #   pytest-bdd
